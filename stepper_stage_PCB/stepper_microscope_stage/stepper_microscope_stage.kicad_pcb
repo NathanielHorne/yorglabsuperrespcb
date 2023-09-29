@@ -91,7 +91,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "../22 Sep 2023 Gerber Files/")
+      (outputdirectory "/home/natch/Documents/BYU/IMMERSE/Yorglab/PCBs/Superres/yorglabsuperrespcb/stepper_stage_PCB/29sep2023files/")
     )
   )
 
