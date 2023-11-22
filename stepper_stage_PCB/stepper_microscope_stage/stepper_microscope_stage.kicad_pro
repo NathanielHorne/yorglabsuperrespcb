@@ -469,7 +469,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "stepper_microscope_stage.step",
+      "step": "../../../../3D models/stepper_microscope_stage.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
