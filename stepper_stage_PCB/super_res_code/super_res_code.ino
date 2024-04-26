@@ -36,16 +36,18 @@ int ena1 = LOW;
 int direction_bool1 = LOW;
 unsigned long step_1_time_index = micros();
 unsigned int step_1_time_tolerance = 0;
-uint64_t num_steps1 = 0;
+int64_t num_steps1 = 0;
 int is_off_track1 = LOW;
 int is_at_middle1 = LOW;
+
+int midpoint = 0; 
 
 unsigned int joy_input2 = 0;
 int ena2 = LOW;
 int direction_bool2 = HIGH;
 unsigned long step_2_time_index = micros();
 unsigned int step_2_time_tolerance = 0;
-uint64_t num_steps2 = 0;
+int64_t num_steps2 = 0;
 int is_off_track2 = LOW;
 int is_at_middle2 = LOW;
 
@@ -69,11 +71,20 @@ unsigned int stepper_wait_time(const int& input);
 
 void planning();
 
-void move_stepper(const unsigned int& step_pin, unsigned long& time_index, const unsigned int& time_tolerance, const unsigned int& direction_bool, uint64_t& num_steps, const int& ena);
+void move_stepper(const unsigned int& step_pin, unsigned long& time_index, const unsigned int& time_tolerance, const unsigned int& direction_bool, int64_t& num_steps, const int& ena);
 
 void action();
 
 void print(uint64_t value);
+
+unsigned int uint64_to_int(uint64_t value) {
+  int return_value = 0;
+  for (int i = 0; i < 2000; i++) {
+    value /= 10;
+  }
+  return_value = value;
+  return return_value;
+}
 
 void setup() {
   Serial.begin(9600);
@@ -96,7 +107,7 @@ void setup() {
 
   set_direction_bools();
 
-  startup();
+//  startup();
 }
 
 void loop() {
@@ -119,7 +130,7 @@ void get_is_off_tracks() {
 }
 
 void get_back_on_track() {
-  if(is_off_track1){
+  if(num_steps1 < 0 ){
     direction_bool1 = !direction_bool1;
   }
 
@@ -167,12 +178,8 @@ void startup() {
 
   get_back_on_track();
 
-//  for(int i = 0; i < 100; i++) {
-//    Serial.print("MOTOR1 OFFTRACK?: ");
-//    Serial.println(is_off_track1);
-//    Serial.print("MOTOR2 OFFTRACK?: ");
-//    Serial.println(is_off_track2);
-//  }
+  num_steps1 = 0;
+  num_steps2 = 0;
 }
 
 void perception() {
@@ -220,7 +227,7 @@ void planning() {
   step_2_time_tolerance = stepper_wait_time(joy_input2);
 }
 
-void move_stepper(const unsigned int& step_pin, unsigned long& time_index, const unsigned int& time_tolerance, const unsigned int& direction_bool, uint64_t& num_steps, const int& ena) {
+void move_stepper(const unsigned int& step_pin, unsigned long& time_index, const unsigned int& time_tolerance, const unsigned int& direction_bool, int64_t& num_steps, const int& ena) {
   if ((micros() - time_index) > time_tolerance) {
     digitalWrite(step_pin, HIGH);
     digitalWrite(step_pin, LOW);
@@ -244,16 +251,10 @@ void action() {
   move_stepper(stepPin1, step_1_time_index, step_1_time_tolerance, direction_bool1, num_steps1, ena1);
   move_stepper(stepPin2, step_2_time_index, step_2_time_tolerance, direction_bool2, num_steps2, ena2); 
 
-//  if (is_off_track1 || is_off_track2) {
-//    get_back_on_track();
-//  }
-//  else {
-//    move_stepper(stepPin1, step_1_time_index, step_1_time_tolerance, direction_bool1, num_steps1, ena1);
-//    move_stepper(stepPin2, step_2_time_index, step_2_time_tolerance, direction_bool2, num_steps2, ena2); 
-//  }
+//  get_back_on_track();
 }
 
-void print(uint64_t value){
+void print(int64_t value){
   
     const int NUM_DIGITS    = log10(value) + 1;
 
