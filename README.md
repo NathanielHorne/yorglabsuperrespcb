@@ -25,7 +25,20 @@
   ###
 
 ## CODE
-  ### Keynote 1
+  ### Methodology
+  This code is broken up into three distinct sections: perception, planning, and action.
+  ```cpp
+  perception();
+  ```
+  ```cpp
+  planning();
+  ```
+  ```cpp
+  action();
+  ``` 
+  ***
   ### Keynote 2
+  ***
   ### Keynote 3
+  ***
 ## OPERATION
