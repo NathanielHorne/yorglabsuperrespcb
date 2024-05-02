@@ -37,8 +37,12 @@
   action();
   ``` 
   ***
-  ### Keynote 2
+  ### Custom PWM Signal
+  In order to function, each stepper needs to run on a pseudo-PWM signal.
+  That is, the "step" pin receives a distinct off-on-off pattern for a single step of the stepper.
+  The rate at which these patterns come in dictates the rate at which the stepper steps.
+  
   ***
-  ### Keynote 3
+  ### Startup Features
   ***
 ## OPERATION
