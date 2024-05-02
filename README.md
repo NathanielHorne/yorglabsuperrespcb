@@ -20,7 +20,9 @@
   ### Tension Relief Holes
   ![Tension relief holes indication](./readme_dependencies/tension%20relief%20holes.png)
   
-  Probably the most striking thing to see, at first, are the tension relief holes. You thread the wires or ribbon cables through them like a needle and thread. This makes it so that the tension of any motion / movement on the wires from the outside is transfered to the board instead of the connectors. This adds durability to the board, but also makes it so that it's more complicated to manufacture. Luckily, 
+  Probably the most striking thing to see, at first, are the tension relief holes. You thread the wires or ribbon cables through them like a needle and thread. This makes it so that the tension of any motion / movement on the wires from the outside is transfered to the board instead of the connectors. This adds durability to the board, but also makes it so that it's more complicated to manufacture. Luckily, the BYU Electrical Engineering Experiential Learning Center was able to mill it with little issue.
+  ***
+  ###
 
 ## CODE
 ## OPERATION

@@ -1,16 +1,20 @@
 #include <math.h>
 
+// Stepper box 1 I/O pin definitions
 #define stepPin1  10
 #define dirPin1   11
 #define enPin1    12
 
+// Stepper box 2 I/O pin definitions
 #define stepPin2  9
 #define dirPin2   8
 #define enPin2    7
 
+// Dual axis joystick I/O definitions 
 #define joy_in1   A1
 #define joy_in2   A0
 
+// Optical gate switches I/O definitions
 #define gate_switch1 4
 #define gate_switch2 3
 
