@@ -89,5 +89,8 @@
   At its core, this method manually defines how long the arduino takes in-between stepping each motor. This is done by storing when the nano begins to wait using the `micros();` command, then measuring how much time has past. If the elapsed time is larger than the defined wait time, the nano commands the stepper to take a single step, the number of total steps that stepper has taken is recorded, and the process begins again. 
   The wait time is defined at the very top of the file. See the variables `slowest_speed`, `second_fastest`, `second_slowest`, and `fastest_speed` in the `#define` section of the code.
   ***
+  ### A Note About Printing the Relative Position of the Stage
+  In the event that we wanted to plot the relative position of the stage, we would need to display the number of steps the stepper has taken in relation to when it was homed. Turns out, the number of steps a stepper takes traversing accross one of the metal fins the photodiode uses to tell whether or not the stepper is out of alignment is about the max value of the variable type "long long" or "int64_t". Obviously, this is kind of insane. It also leads to other errors. 
+  ***
 ## OPERATION
 Ensure every wire is connected to where it needs to be connected to. Position the stage so the path of the photodiodes is blocked by their corresponding metal fin. Plug the stage's power supply into a wall socket. Turn the motherboard on by flipping the switch. A blue and red indicator light from the buck converter and Arduino Nano respectively should come on immediately. From then on, use the joystick to move the stage. The higher the angle of the joystick in either direction, the faster the steppers will step in that direction.
