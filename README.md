@@ -1,10 +1,10 @@
 # yorglabsuperrespcb
 
 # Table of Contents
-1. [SUMMARY](##SUMMARY)
-2. [PCB](##PCB)
-3. [CODE](##CODE)
-4. [OPERATION](##OPERATION)
+1. [SUMMARY](#SUMMARY)
+2. [PCB](#PCB)
+3. [CODE](#CODE)
+4. [OPERATION](#OPERATION)
 
 ## SUMMARY
 ![Project overview](./readme_dependencies/generaloverview.png)
